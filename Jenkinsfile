@@ -10,8 +10,7 @@ pipeline{
         stage('pull jenkins image and deploy'){
             steps{
                 sh 'docker login -u $doc_creds_USR -p $doc_creds_PSW && docker pull ypavankumar123/nodeapp-jenkins:nodeappimage'
-                sh 'docker stop nodeappcontainer'
-                sh 'docker rm nodeappcontainer'
+                sh 'delete_container.sh'
                 sh 'docker run  --name nodeappcontainer -p 8081:8081 ypavankumar123/nodeapp-jenkins:nodeappimage'
             }
         }
