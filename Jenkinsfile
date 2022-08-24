@@ -1,6 +1,6 @@
 pipeline{
     //agent {label 'pavan-jenkins-hoster-instance-2'}
-    agent {label 'Built-In Node'}
+    agent any
     environment{
         PATH = "/usr/local/bin:${env.PATH}"
         doc_creds = credentials("e9aefd7f-157a-4320-9717-a00a33701190")
