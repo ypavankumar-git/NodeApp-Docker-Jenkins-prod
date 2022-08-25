@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
     mysql: 
-      image: mysql
+      image: ypavankumar123/mysql
       volumes: 
          - volumeForMysql:/var/lib/mysql
       ports: 
@@ -14,8 +14,8 @@ services:
       networks:
          - appNetwork
     
-    app:
-      image: nodeapp
+    nodeapp:
+      image: ypavankumar123/nodeapp
       volumes: 
          - volumeForApp:/var/www/html
       ports: 
