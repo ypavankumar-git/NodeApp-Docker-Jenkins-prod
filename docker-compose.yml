@@ -39,4 +39,4 @@ networks:
 
 secrets:
    dbPassword:
-      file: Routes/mysql/db-password.txt
+      file: secret.txt
