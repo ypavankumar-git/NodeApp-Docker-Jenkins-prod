@@ -9,8 +9,8 @@ pipeline{
     stages{
         stage('pull jenkins image and deploy'){
             steps{
-                sh 'docker login -u $doc_creds_USR -p $doc_creds_PSW && docker-compose up -d'
                 sh 'sh delete_container.sh'
+                sh 'docker login -u $doc_creds_USR -p $doc_creds_PSW && docker-compose up -d'
                 //sh 'docker-compose up -d'
                 //&& docker pull ypavankumar123/nodeapp:latest && docker pull ypavankumar123/mysql:latest
             }
