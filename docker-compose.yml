@@ -1,0 +1,42 @@
+version: '3.3'
+
+services:
+    mysql: 
+      image: mysql-app
+      volumes: 
+         - volumeForMysql:/var/lib/mysql
+      ports: 
+         - 3306:3306
+      secrets:
+         - dbPassword
+      environment: 
+         MYSQL_ROOT_PASSWORD: /run/secrets/dbPassword
+      networks:
+         - appNetwork
+    
+    app:
+      image: app
+      volumes: 
+         - volumeForApp:/var/www/html
+      ports: 
+         - 3030:3030
+      secrets:
+         - dbPassword
+      environment:
+         MYSQL_HOSTNAME: mysql
+         APP_PORT: 3306
+         DB_USER_NAME: root
+         DB_PASSWORD: /run/secrets/dbPassword
+      networks:
+         - appNetwork
+
+volumes:
+  volumeForMysql: {}
+  volumeForApp: {}
+
+networks:
+   appNetwork:
+
+secrets:
+   dbPassword:
+      file: Routes/mysql/db-password.txt
