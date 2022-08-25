@@ -11,7 +11,7 @@ pipeline{
             steps{
                 sh 'docker login -u $doc_creds_USR -p $doc_creds_PSW && docker pull ypavankumar123/nodeapp:latest && docker pull ypavankumar123/mysql:latest'
                 sh 'sh delete_container.sh'
-                sh 'docker compose up'
+                sh 'docker-compose up'
             }
         }
       }
