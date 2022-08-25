@@ -39,4 +39,4 @@ networks:
 
 secrets:
    dbPassword:
-      file: secret.txt
+      file: db_password.txt
